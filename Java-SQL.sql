@@ -1,0 +1,54 @@
+--------------------------------------------------------
+--  File created - Tuesday-October-31-2017   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table CESTAR_USER
+--------------------------------------------------------
+
+  CREATE TABLE "SYSTEM"."CESTAR_USER" 
+   (	"ID" NUMBER, 
+	"FIRST_NAME" VARCHAR2(64 BYTE), 
+	"LAST_NAME" VARCHAR2(64 BYTE), 
+	"GENDER" VARCHAR2(6 BYTE), 
+	"EMAIL" VARCHAR2(264 BYTE), 
+	"DEPARTMENT" VARCHAR2(64 BYTE), 
+	"PASSWORD" VARCHAR2(264 BYTE)
+   ) PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  DDL for Index CESTAR_USER_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "SYSTEM"."CESTAR_USER_PK" ON "SYSTEM"."CESTAR_USER" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM" ;
+--------------------------------------------------------
+--  Constraints for Table CESTAR_USER
+--------------------------------------------------------
+
+  ALTER TABLE "SYSTEM"."CESTAR_USER" ADD CONSTRAINT "CESTAR_USER_PK" PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "SYSTEM"  ENABLE;
+  ALTER TABLE "SYSTEM"."CESTAR_USER" MODIFY ("ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  DDL for Trigger CESTAR_USER_INSERT
+--------------------------------------------------------
+
+CREATE SEQUENCE CESTAR_USER_SEQ START WITH 1;
+  CREATE OR REPLACE TRIGGER "SYSTEM"."CESTAR_USER_INSERT" 
+   before insert on "SYSTEM"."CESTAR_USER" 
+   for each row 
+begin  
+   SELECT CESTAR_USER_SEQ.nextval
+   INTO :new.id
+   FROM dual;
+end;
+
+select * from cestar_user;
+

@@ -1,0 +1,17 @@
+We have shared code of Registration & login page. 
+
+ 
+
+Task is to do Update using profile.html and a servlet. Task involves --
+
+a) create profile servlet 
+
+b) move user id from  login servlet to profile servlet 
+
+c) in profile servlet, using the id, select the record of user from cestar_user table 
+
+d) show the user information in  profile.html
+
+e) update the content on profile.html and click update button.
+
+f) update button will update the data in database and show the updated data in profile.html
