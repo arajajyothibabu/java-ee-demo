@@ -1,4 +1,4 @@
-package com.cestarcollege.servlets;
+package com.cestarcollege.servelets;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
 			}
 		
 		if(id>0){
+			request.getSession().setAttribute("id", id);
 			response.sendRedirect("profile.html");
 		}else{
 			response.sendRedirect("exception");
@@ -81,7 +82,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			 con=DriverManager.getConnection(  
-					"jdbc:oracle:thin:@localhost:1521:xe","system","jyothi");
+					"jdbc:oracle:thin:@localhost:1521:xe","system","123");
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
