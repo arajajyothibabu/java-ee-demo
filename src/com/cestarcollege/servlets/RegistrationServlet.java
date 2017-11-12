@@ -1,4 +1,4 @@
-package com.cestarcollege.servelets;
+package com.cestarcollege.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;

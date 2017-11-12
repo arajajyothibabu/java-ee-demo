@@ -1,4 +1,4 @@
-package com.cestarcollege.servelets;
+package com.cestarcollege.servlets;
 
 /**
  * Created by jyothi on 7/11/17.
