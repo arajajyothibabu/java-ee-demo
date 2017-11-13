@@ -90,7 +90,7 @@ public class RegistrationServlet extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			 con=DriverManager.getConnection(  
-					"jdbc:oracle:thin:@localhost:1521:xe","system","1234");  
+					"jdbc:oracle:thin:@localhost:1521:xe","system","123");  
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
 <body>
-<h1>TBD......</h1>
+<form method="post" action="profile" name='profile'>
+First Name<input type="text" name="first_name" required/><br>
+Last Name<input  type="text" name="last_name" required/><br>
+Email<input  type="email" name="email_address" required/><br>
+Password<input type="password" name="password" required/><br>
+Gender:<input class="gender" type="radio" name="gender" value="Male"/>Male
+       <input class="gender" type="radio" name="gender" value="Female"/>Female<br>
+Category:
+		<select  name="category">
+		 <option value="student">Student</option>
+		 <option value="instructor">Instructor</option>
+		 <option value="admin">Admin</option>
+		</select><br>
+<input type="submit" name="Update" value="Update"/>		
+</form>
+
+<script>
+	$(document).ready(function(){
+		$.get('profile', function (data) {
+			document.profile.first_name.value = (data.firstName);
+			document.profile.last_name.value = (data.lastName);
+			document.profile.email_address.value = (data.email);
+			document.profile.password.value = (data.password);
+			document.profile.gender.value = data.gender;
+			document.profile.category.value = (data.department);
+		    console.log(data);  
+		    console.log(document.profile.value);
+		});
+	});
+</script>
 </body>
+
 </html>
